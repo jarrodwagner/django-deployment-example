@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Users</title>
+    <link rel="stylesheet" href=" {% static "css/master.css" %}">
+
+  </head>
+  <body>
+    <h1>I'm the user page</h1>
+
+    <div class="returnedContent">
+      {% if users %}
+        <table>
+          <thead>
+            <th>User First Name</th>
+            <th>User Last Name</th>
+            <th>User Email</th>
+          </thead>
+
+          {% for user in users %}
+            <tr>
+              <td> {{ user.user_fn }}</td>
+              <td> {{ user.user_ln }}</td>
+              <td> {{ user.user_email }}</td>
+            </tr>
+          {% endfor %}
+        </table>
+
+      {% else %}
+        <p>No user data found</p>
+
+      {% endif %}
+
+    </div>
+  </body>
+</html>
